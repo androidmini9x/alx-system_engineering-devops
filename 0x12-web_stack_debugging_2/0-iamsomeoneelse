@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
-# accept one argument
-# runs the whoami command under the user passed as an argument
-su -c "$1" 'whoami'
+# Check if the user exists
+if ! id -u "$1" > /dev/null 2>&1; then
+  echo "User '$1' does not exist."
+  exit 1
+fi
+
+# Switch to the specified user and run the 'whoami' command
+sudo -u "$1" whoami
