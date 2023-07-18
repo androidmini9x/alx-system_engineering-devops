@@ -1,0 +1,29 @@
+To create a database named `tyrell_corp`, create a table named `nexus6`, and add at least one entry to it, along with granting `holberton_user` SELECT permissions, you can follow these steps:
+
+1. Create the `tyrell_corp` database:
+   ```sql
+   CREATE DATABASE tyrell_corp;
+   ```
+
+2. Switch to the `tyrell_corp` database:
+   ```sql
+   USE tyrell_corp;
+   ```
+
+3. Create the `nexus6` table with at least one entry. Here's an example structure for the `nexus6` table with two columns (`id` and `name`):
+   ```sql
+   CREATE TABLE nexus6 (
+     id INT AUTO_INCREMENT PRIMARY KEY,
+     name VARCHAR(255)
+   );
+   ```
+
+4. Insert at least one entry into the `nexus6` table:
+   ```sql
+   INSERT INTO nexus6 (name) VALUES ('Entry 1');
+   ```
+
+5. Grant `SELECT` permissions on the `nexus6` table to `holberton_user`:
+   ```sql
+   GRANT SELECT ON tyrell_corp.nexus6 TO 'holberton_user'@'localhost';
+   ```

@@ -1,0 +1,11 @@
+To create a MySQL user named `holberton_user` with the specified host name, password, and privileges on both `web-01` and `web-02`, you can follow these steps:
+
+1. Once logged in to the MySQL server, execute the following SQL statement to create the user:
+   ```sql
+   CREATE USER 'holberton_user'@'localhost' IDENTIFIED BY 'projectcorrection280hbtn';
+   ```
+
+2. Grant the necessary privileges to the user:
+   ```sql
+   GRANT REPLICATION CLIENT ON *.* TO 'holberton_user'@'localhost';
+   ```

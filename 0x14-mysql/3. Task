@@ -1,0 +1,21 @@
+To create a new user named `replica_user` on the primary MySQL server (`web-01`) with appropriate replication permissions, and grant `holberton_user` SELECT privileges on the `mysql.user` table, you can follow these steps:
+
+1. Create the `replica_user` with the desired password (replace `REPLICA_USER_PASSWORD` with your desired password):
+   ```sql
+   CREATE USER 'replica_user'@'%' IDENTIFIED BY 'REPLICA_USER_PASSWORD';
+   ```
+
+2. Grant replication-related privileges to the `replica_user`:
+   ```sql
+   GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%';
+   ```
+
+3. Flush the privileges to apply the changes:
+   ```sql
+   FLUSH PRIVILEGES;
+   ```
+
+4. Grant `SELECT` privileges on the `mysql.user` table to `holberton_user`:
+   ```sql
+   GRANT SELECT ON mysql.user TO 'holberton_user'@'localhost';
+   ```
